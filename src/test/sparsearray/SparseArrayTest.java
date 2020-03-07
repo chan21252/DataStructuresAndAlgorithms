@@ -1,4 +1,6 @@
-package datastructures.sparsearray;
+package test.sparsearray;
+
+import datastructures.sparsearray.SparseArray;
 
 public class SparseArrayTest {
     public static void main(String[] args) {
