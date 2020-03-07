@@ -6,7 +6,7 @@ package datastructures.sparsearray;
  * @author Administrator
  * @since 2020-03-05
  */
-public class SpareArray {
+public class SparseArray {
 
     /**
      * 将原始数组转为稀疏数组
