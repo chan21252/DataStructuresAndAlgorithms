@@ -1,6 +1,6 @@
 package test.sort;
 
-import algorithm.sort.Selection;
+import algorithm.sort.Shell;
 import edu.princeton.cs.algs4.StdRandom;
 
 /**
@@ -11,13 +11,13 @@ import edu.princeton.cs.algs4.StdRandom;
  */
 public class SelectionTest {
     public static void main(String[] args) {
-        Integer[] a = new Integer[10];
+        Integer[] a = new Integer[16];
 
         for (int i = 0; i < a.length; i++) {
-            a[i] = StdRandom.uniform(0, 1000);
+            a[i] = StdRandom.uniform(0, 10000);
         }
 
-        Selection.sort(a);
-        Selection.show(a);
+        Shell.sort(a);
+        Shell.show(a);
     }
 }
