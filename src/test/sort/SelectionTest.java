@@ -1,7 +1,6 @@
 package test.sort;
 
-import algorithm.sort.Shell;
-import edu.princeton.cs.algs4.StdRandom;
+import algorithm.sort.Merge;
 
 /**
  * SelectionTest
@@ -11,13 +10,9 @@ import edu.princeton.cs.algs4.StdRandom;
  */
 public class SelectionTest {
     public static void main(String[] args) {
-        Integer[] a = new Integer[16];
+        String[] a = new String[]{"M", "E", "R", "G", "E", "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
 
-        for (int i = 0; i < a.length; i++) {
-            a[i] = StdRandom.uniform(0, 10000);
-        }
-
-        Shell.sort(a);
-        Shell.show(a);
+        Merge.sort(a);
+        Merge.show(a);
     }
 }
