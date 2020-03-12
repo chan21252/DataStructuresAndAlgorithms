@@ -1,4 +1,4 @@
-package exercise.chapter1.ex1_1_5;
+package chapter1.ex1_1_5;
 
 /**
  * ValueTest

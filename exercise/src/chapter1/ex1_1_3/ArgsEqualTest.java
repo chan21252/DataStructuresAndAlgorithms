@@ -1,4 +1,4 @@
-package exercise.chapter1.ex1_1_3;
+package chapter1.ex1_1_3;
 
 /**
  * ArgsEqualTest
