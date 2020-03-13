@@ -1,6 +1,6 @@
 package test.sort;
 
-import algorithm.sort.Merge;
+import algorithm.sort.Quick;
 
 /**
  * SelectionTest
@@ -12,7 +12,7 @@ public class SelectionTest {
     public static void main(String[] args) {
         String[] a = new String[]{"M", "E", "R", "G", "E", "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
 
-        Merge.sort(a);
-        Merge.show(a);
+        Quick.sort(a);
+        Quick.show(a);
     }
 }
