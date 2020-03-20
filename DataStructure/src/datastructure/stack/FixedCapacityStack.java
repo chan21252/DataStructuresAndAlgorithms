@@ -1,4 +1,4 @@
-package datastructures.stack;
+package datastructure.stack;
 
 /**
  * 固定容量的栈,支持泛型

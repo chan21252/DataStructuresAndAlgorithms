@@ -1,26 +1,29 @@
-package datastructures.linklist.stack;
-
-import datastructures.linklist.queue.Queue;
+package datastructure.linkedlist.queue;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
 /**
- * 下压栈的链表实现
+ * 队列的链表实现
  *
  * @author Chan
  * @since 2020/3/8
  */
-public class Stack<Item> implements Iterable<Item> {
-    //栈顶节点
-    private Node first = null;
-    //栈节点的数量
-    private int N = 0;
+public class Queue<Item> implements Iterable<Item> {
+
+    private Node first;
+    private Node last;
+    private int N;
+
+    public Queue() {
+        first = null;
+        last = null;
+        N = 0;
+    }
 
     public boolean isEmpty() {
-        return first == null;
+        return N == 0;
     }
 
     public int size() {
@@ -28,44 +31,42 @@ public class Stack<Item> implements Iterable<Item> {
     }
 
     /**
-     * 栈顶添加元素
+     * 向队列尾部添加元素
      *
-     * @param item 泛型Item类型参数
+     * @param item Item泛型对象
      */
-    public void push(Item item) {
-        Node newNode = new Node();
-        newNode.item = item;
-        Node oldFirst = first;
-        first = newNode;
-        newNode.next = oldFirst;
+    private void enqueue(Item item) {
+        Node oldLast = last;
+        last = new Node();
+        last.item = item;
+        last.next = null;
+
+        if (isEmpty()) {
+            first = last;
+        } else {
+            oldLast.next = last;
+        }
+
         N++;
     }
 
     /**
-     * 取出栈顶元素
+     * 从队列头部取出元素
      *
-     * @return Item
+     * @return Item泛型对象
      */
-    public Item pop() {
+    private Item dequeue() {
         if (isEmpty()) {
-            throw new UnsupportedOperationException("栈为空");
+            throw new UnsupportedOperationException("队列为空");
         }
+
         Item item = first.item;
         first = first.next;
+        if (isEmpty()) {
+            last = first;
+        }
         N--;
         return item;
-    }
-
-    /**
-     * 返回栈顶元素，不弹出栈
-     *
-     * @return Item
-     */
-    public Item peek() {
-        if (isEmpty()) {
-            throw new NoSuchElementException("栈为空");
-        }
-        return first.item;
     }
 
     @Override
@@ -83,9 +84,6 @@ public class Stack<Item> implements Iterable<Item> {
         throw new UnsupportedOperationException("不支持");
     }
 
-    /**
-     * 节点
-     */
     private class Node {
         Item item;
         Node next;

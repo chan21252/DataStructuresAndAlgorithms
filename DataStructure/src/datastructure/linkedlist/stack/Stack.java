@@ -1,29 +1,24 @@
-package datastructures.linklist.queue;
+package datastructure.linkedlist.stack;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
 /**
- * 队列的链表实现
+ * 下压栈的链表实现
  *
  * @author Chan
  * @since 2020/3/8
  */
-public class Queue<Item> implements Iterable<Item> {
-
-    private Node first;
-    private Node last;
-    private int N;
-
-    public Queue() {
-        first = null;
-        last = null;
-        N = 0;
-    }
+public class Stack<Item> implements Iterable<Item> {
+    //栈顶节点
+    private Node first = null;
+    //栈节点的数量
+    private int N = 0;
 
     public boolean isEmpty() {
-        return N == 0;
+        return first == null;
     }
 
     public int size() {
@@ -31,42 +26,44 @@ public class Queue<Item> implements Iterable<Item> {
     }
 
     /**
-     * 向队列尾部添加元素
+     * 栈顶添加元素
      *
-     * @param item Item泛型对象
+     * @param item 泛型Item类型参数
      */
-    private void enqueue(Item item) {
-        Node oldLast = last;
-        last = new Node();
-        last.item = item;
-        last.next = null;
-
-        if (isEmpty()) {
-            first = last;
-        } else {
-            oldLast.next = last;
-        }
-
+    public void push(Item item) {
+        Node newNode = new Node();
+        newNode.item = item;
+        Node oldFirst = first;
+        first = newNode;
+        newNode.next = oldFirst;
         N++;
     }
 
     /**
-     * 从队列头部取出元素
+     * 取出栈顶元素
      *
-     * @return Item泛型对象
+     * @return Item
      */
-    private Item dequeue() {
+    public Item pop() {
         if (isEmpty()) {
-            throw new UnsupportedOperationException("队列为空");
+            throw new UnsupportedOperationException("栈为空");
         }
-
         Item item = first.item;
         first = first.next;
-        if (isEmpty()) {
-            last = first;
-        }
         N--;
         return item;
+    }
+
+    /**
+     * 返回栈顶元素，不弹出栈
+     *
+     * @return Item
+     */
+    public Item peek() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("栈为空");
+        }
+        return first.item;
     }
 
     @Override
@@ -84,6 +81,9 @@ public class Queue<Item> implements Iterable<Item> {
         throw new UnsupportedOperationException("不支持");
     }
 
+    /**
+     * 节点
+     */
     private class Node {
         Item item;
         Node next;

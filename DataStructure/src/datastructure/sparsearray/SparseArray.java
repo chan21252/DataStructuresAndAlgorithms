@@ -1,4 +1,4 @@
-package datastructures.sparsearray;
+package datastructure.sparsearray;
 
 /**
  * 稀疏矩阵

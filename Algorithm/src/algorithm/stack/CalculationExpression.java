@@ -1,6 +1,6 @@
 package algorithm.stack;
 
-import datastructures.stack.ResizingArrayStack;
+import datastructure.stack.ResizingArrayStack;
 
 /**
  * 计算表达式的值，允许 + - * /（）, 但是要用空格隔开

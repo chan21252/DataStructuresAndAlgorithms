@@ -1,4 +1,4 @@
-package datastructures.linklist.singly;
+package datastructure.linkedlist.singly.version1;
 
 /**
  * 节点
