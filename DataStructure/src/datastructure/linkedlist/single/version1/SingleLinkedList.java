@@ -1,4 +1,4 @@
-package datastructure.linkedlist.singly.version1;
+package datastructure.linkedlist.single.version1;
 
 /**
  * 单向链表
@@ -6,7 +6,7 @@ package datastructure.linkedlist.singly.version1;
  * @author Chan
  * @since 2020/3/7
  */
-public class SinglyLinkList<T> {
+public class SingleLinkedList<T> {
 
     //头节点
     private Node<T> first = null;
